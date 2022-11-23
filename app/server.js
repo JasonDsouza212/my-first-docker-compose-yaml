@@ -38,7 +38,7 @@ let databaseName = "my-db";
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;
 
-  MongoClient.connect('mongodb://admin:password@localhost:27017', mongoClientOptions, function (err, client) {
+  MongoClient.connect('mongodb://admin:password@mongodb:27017', mongoClientOptions, function (err, client) {
     if (err) throw err;
 
     let db = client.db('user-account');
@@ -60,7 +60,7 @@ app.post('/update-profile', function (req, res) {
 app.get('/get-profile', function (req, res) {
   let response = {};
   // Connect to the db
-  MongoClient.connect('mongodb://admin:password@localhost:27017', mongoClientOptions, function (err, client) {
+  MongoClient.connect('mongodb://admin:password@mongodb:27017', mongoClientOptions, function (err, client) {
     if (err) throw err;
 
     let db = client.db('user-account');
@@ -79,6 +79,6 @@ app.get('/get-profile', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("app listening on port 3000!");
+  console.log("app listening on port 3000! you can use it now");
 });
 
